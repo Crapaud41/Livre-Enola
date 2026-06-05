@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Un Lien Indestructible</title>
+  <link rel="stylesheet" href="../style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <button id="toggle-dark" title="Changer le thème">☀️</button>
+  <div class="page-blanche" style="position: relative; justify-content: flex-start; padding-top: 20px;">
+    <h1 class="titre-classique">Un Lien Indestructible 💙</h1>
+    <div class="texte-lettre" style="text-align: justify; overflow-y: auto;">
+      <p>Elle est attentionnée au point que tu te demandes si vous n'avez pas grandi ensemble. Elle se souvient de tant de choses positives sur moi, et je trouve ça adorable. Ce n'est pas le genre de personne à te lâcher, et j'en suis sûr. Elle connaît au moins 90% de ma vie, alors je ne peux qu'avoir des pensées positives envers elle.</p>
+      <br />
+      <p>Je me sens super bien quand elle passe du temps avec moi. C'est une personne exceptionnelle, une fille très intelligente, une fille magnifique, très attachante. Au tout début, dans mes souvenirs, nos SMS étaient très bienveillants, j'avais l'impression que j'étais sur un petit nuage, je souriais beaucoup plus qu'avant.</p>
+      <br />
+      <p>Je suis fier d'elle pour tout ce qu'elle a fait. Alors oui, on s'est embrouillés très fort, mais on se reparle depuis le 30 septembre 2020. Et cela a duré depuis le mois de mars 2020. C'est elle qui a fait le premier pas, et je me suis dit qu'en réalité, j'étais important pour elle.</p>
+      <br />
+      <p>Sinon, comme elle me l'a dit : "si tu ne servais à rien, je t'aurais tej." Je ne pensais pas qu'un jour j'allais tomber sur une fille comme Enola. Elle est mon bonheur au quotidien, elle respire la joie de vivre, le truc le plus fou, c'est qu'il suffit qu'elle sourit pour que je sois heureux.</p>
+      <br />
+      <p>Quand on s'appelle en cam et que je la vois, à la première seconde, je souris. Je peux même être triste, malheureux, ne pas avoir envie de parler, mais dès que je la vois, je suis content. C'est une sensation que je n'avais jamais ressentie auparavant, peut-être que cette fameuse sensation s'appelle le bonheur, j'imagine.</p>
+      <br />
+      <p>Comme je lui ai dit à de multiples reprises, si jamais un jour elle a besoin de quoi que ce soit, je serai le premier à lui tendre la main, même si je dois lui donner mon cœur pour qu'elle continue de vivre, je le ferai sans même émettre le moindre doute.</p>
+      <br />
+      <p>Je donnerai tout ce que j'ai pour qu'elle continue de vivre, même si je dois perdre la mienne. Je ne veux que du bien pour elle, car elle ne mérite que du bien. Qu'elle garde la tête haute et ne baisse jamais les bras.</p>
+      <br />
+      <p>Si c'est toi qui lis ce petit texte, Enola, retiens que tu es mon ange gardien car tu veilles sur moi depuis toujours et que grâce à toi, j'ai pu rester près de toi malgré tout ce que tu sais. Je te fais plein de bisous, je t'aime de tout mon cœur, je ne t'oublierai jamais, et pour rien au monde je ne voudrais te perdre mon petit ange.</p>
+      <br />
+      <p><em>Ton petit crapaud d'amour ❤️🐸</em></p>
+    </div>
+    <div class="numero-page" style="position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%);">Page 6</div>
+    <a href="page05.html" class="fleche-gauche">←</a>
+    <a href="page07.html" class="fleche-droite">→</a>
+  </div>
+  <script>
+    const btn = document.getElementById('toggle-dark');
+    const dark = localStorage.getItem('dark') === 'true';
+    if (dark) { document.body.classList.add('dark-mode'); btn.textContent = '🌙'; }
+    btn.addEventListener('click', () => {
+      document.body.classList.toggle('dark-mode');
+      const isDark = document.body.classList.contains('dark-mode');
+      btn.textContent = isDark ? '🌙' : '☀️';
+      localStorage.setItem('dark', isDark);
+    });
+    document.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', function (e) {
+        const href = this.getAttribute('href');
+        if (href && !href.startsWith('#') && !href.startsWith('javascript')) {
+          e.preventDefault();
+          document.body.classList.add('fade-out');
+          setTimeout(() => { window.location.href = href; }, 600);
+        }
+      });
+    });
+  </script>
+</body>
+</html>

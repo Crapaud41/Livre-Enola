@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ce que je suis devenu grâce à toi</title>
+  <link rel="stylesheet" href="../style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet" />
+  <style>
+    .liste-raisons {
+      max-width: 700px;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      overflow-y: auto;
+      padding: 0 10px;
+    }
+    .raison-item {
+      background: rgba(31, 117, 254, 0.07);
+      border-radius: 8px;
+      padding: 8px 14px;
+      text-align: left;
+      font-size: 15px;
+      opacity: 0;
+      transform: translateY(10px);
+      animation: fadeInItem 0.4s forwards;
+    }
+    .raison-item:nth-child(1)  { animation-delay: 0.05s; }
+    .raison-item:nth-child(2)  { animation-delay: 0.1s; }
+    .raison-item:nth-child(3)  { animation-delay: 0.15s; }
+    .raison-item:nth-child(4)  { animation-delay: 0.2s; }
+    .raison-item:nth-child(5)  { animation-delay: 0.25s; }
+    .raison-item:nth-child(6)  { animation-delay: 0.3s; }
+    .raison-item:nth-child(7)  { animation-delay: 0.35s; }
+    .raison-item:nth-child(8)  { animation-delay: 0.4s; }
+    .raison-item:nth-child(9)  { animation-delay: 0.45s; }
+    .raison-item:nth-child(10) { animation-delay: 0.5s; }
+    .raison-item:nth-child(11) { animation-delay: 0.55s; }
+    .raison-item:nth-child(12) { animation-delay: 0.6s; }
+    .raison-item:nth-child(13) { animation-delay: 0.65s; }
+    .raison-item:nth-child(14) { animation-delay: 0.7s; }
+    .raison-item:nth-child(15) { animation-delay: 0.75s; }
+    .raison-item:nth-child(16) { animation-delay: 0.8s; }
+    .raison-item:nth-child(17) { animation-delay: 0.85s; }
+    @keyframes fadeInItem {
+      to { opacity: 1; transform: translateY(0); }
+    }
+    body.dark-mode .raison-item {
+      background: rgba(255, 255, 255, 0.05);
+    }
+  </style>
+</head>
+<body>
+  <button id="toggle-dark" title="Changer le thème">☀️</button>
+  <div class="page-blanche" style="position: relative; justify-content: flex-start; padding-top: 20px;">
+    <h1 class="titre-classique">Ce que je suis devenu grâce à toi 💙</h1>
+    <div class="liste-raisons">
+      <div class="raison-item">• Tu m'as redonné l'envie de continuer à vivre.</div>
+      <div class="raison-item">• Tu m'as donné la force de me relever quand je pensais ne plus en avoir.</div>
+      <div class="raison-item">• À travers toi, j'ai appris le respect, l'écoute, et la bienveillance.</div>
+      <div class="raison-item">• Tu m'as montré qu'aimer, ce n'est pas posséder mais protéger.</div>
+      <div class="raison-item">• Tu as su adoucir mes colères les plus fortes.</div>
+      <div class="raison-item">• J'ai compris qu'entendre c'était bien mais écouter c'était mieux.</div>
+      <div class="raison-item">• Tu m'as appris à croire en moi quand j'étais perdu.</div>
+      <div class="raison-item">• Grâce à toi, j'ai appris à m'aimer un peu plus chaque jour.</div>
+      <div class="raison-item">• À travers ton regard, j'ai compris que j'avais de la valeur.</div>
+      <div class="raison-item">• Tu m'as fait croire à l'amitié vraie, celle qui ne s'éteint jamais malgré les silences.</div>
+      <div class="raison-item">• Avec toi, j'ai appris qu'un simple message peut réchauffer une journée entière.</div>
+      <div class="raison-item">• Tu as remplacé mes colères par des rires et des sourires.</div>
+      <div class="raison-item">• Avec toi, j'ai compris ce que veut dire "je suis là GuiGui, l'oublie pas".</div>
+      <div class="raison-item">• J'ai découvert qu'on pouvait être compris sans même parler.</div>
+      <div class="raison-item">• Tu as fait de moi quelqu'un de meilleur, sans jamais me demander de changer.</div>
+      <div class="raison-item">• J'ai compris que ton sourire était magique pour me redonner des couleurs à ma vie.</div>
+      <div class="raison-item">• Tu as su me tendre la main comme personne ne l'avait fait auparavant.</div>
+    </div>
+    <div class="numero-page" style="position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%);">Page 14</div>
+    <a href="page13.html" class="fleche-gauche">←</a>
+    <a href="page15.html" class="fleche-droite">→</a>
+  </div>
+  <script>
+    const btn = document.getElementById('toggle-dark');
+    const dark = localStorage.getItem('dark') === 'true';
+    if (dark) { document.body.classList.add('dark-mode'); btn.textContent = '🌙'; }
+    btn.addEventListener('click', () => {
+      document.body.classList.toggle('dark-mode');
+      const isDark = document.body.classList.contains('dark-mode');
+      btn.textContent = isDark ? '🌙' : '☀️';
+      localStorage.setItem('dark', isDark);
+    });
+    document.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', function (e) {
+        const href = this.getAttribute('href');
+        if (href && !href.startsWith('#') && !href.startsWith('javascript')) {
+          e.preventDefault();
+          document.body.classList.add('fade-out');
+          setTimeout(() => { window.location.href = href; }, 600);
+        }
+      });
+    });
+  </script>
+</body>
+</html>

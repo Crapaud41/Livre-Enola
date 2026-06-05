@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Une Rencontre Inattendue</title>
+  <link rel="stylesheet" href="../style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <button id="toggle-dark" title="Changer le thème">☀️</button>
+  <div class="page-blanche" style="position: relative; justify-content: flex-start; padding-top: 20px;">
+    <h1 class="titre-classique">Une Rencontre Inattendue 💙</h1>
+    <div class="texte-lettre" style="text-align: justify; overflow-y: auto;">
+      <p>Malheureusement, nous avons eu une grosse embrouille en mars 2020. C'était un moment difficile, et nos chemins se sont séparés pendant un certain temps. Mais malgré tout, Enola a fait le premier pas pour renouer le contact. Par ce geste, elle m'a montré qu'elle tenait vraiment à moi, et j'ai réalisé à quel point elle était devenue indispensable à ma vie.</p>
+      <br />
+      <p>Nous avons repris contact en septembre 2020, et depuis ce jour, il n'y a eu aucune embrouille entre nous. Notre amitié a continué à se solidifier au fil des mois. Nous avons appris à évoluer ensemble, à mieux nous comprendre, sans jamais oublier que sans Enola je n'existerais pas.</p>
+      <br />
+      <p>Aujourd'hui, en mars 2025, je peux dire avec certitude que je n'arriverais pas à imaginer ma vie sans elle. Elle est devenue essentielle à ma vie, et si un jour nous devions arrêter de nous parler, je me sentirais vide, perdu, sans but.</p>
+      <br />
+      <p>Elle est tout pour moi, et je sais que je suis tout pour elle. À l'heure actuelle, je ne réalise pas vraiment l'immense chance que j'ai qu'elle soit dans ma vie.</p>
+      <br />
+      <p>Merci pour tout Enola d'amour. Je t'aime ♥</p>
+    </div>
+    <div class="numero-page" style="position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%);">Page 8</div>
+    <a href="page07.html" class="fleche-gauche">←</a>
+    <a href="page09.html" class="fleche-droite">→</a>
+  </div>
+  <script>
+    const btn = document.getElementById('toggle-dark');
+    const dark = localStorage.getItem('dark') === 'true';
+    if (dark) { document.body.classList.add('dark-mode'); btn.textContent = '🌙'; }
+    btn.addEventListener('click', () => {
+      document.body.classList.toggle('dark-mode');
+      const isDark = document.body.classList.contains('dark-mode');
+      btn.textContent = isDark ? '🌙' : '☀️';
+      localStorage.setItem('dark', isDark);
+    });
+    document.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', function (e) {
+        const href = this.getAttribute('href');
+        if (href && !href.startsWith('#') && !href.startsWith('javascript')) {
+          e.preventDefault();
+          document.body.classList.add('fade-out');
+          setTimeout(() => { window.location.href = href; }, 600);
+        }
+      });
+    });
+  </script>
+</body>
+</html>

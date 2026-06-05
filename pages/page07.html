@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Une Rencontre Inattendue</title>
+  <link rel="stylesheet" href="../style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <button id="toggle-dark" title="Changer le thème">☀️</button>
+  <div class="page-blanche" style="position: relative; justify-content: flex-start; padding-top: 20px;">
+    <h1 class="titre-classique">Une Rencontre Inattendue 💙</h1>
+    <div class="texte-lettre" style="text-align: justify; overflow-y: auto;">
+      <p>Notre histoire commence en août 2017. Au début on ne se parlait pas car quand on jouait c'était en groupe. La communication n'était pas du tout présente et notre interaction se limitait surtout à donner les infos dans le jeu. En toute honnêteté, je me sentais assez lassé de cette situation. Je n'avais pas de raison particulière de m'attacher à elle.</p>
+      <br />
+      <p>Nous avons commencé à nous retrouver seuls à jouer, et à essayer de se parler. Petit à petit, des échanges ont commencé à émerger. Même si nous étions tous les deux assez timides, nos échanges commençaient à être un peu plus personnels. À partir du 25 août 2017, nous avons commencé à nous parler en privé. C'était encore un peu timide. Elle était encore assez réservée, et nos conversations restaient en surface.</p>
+      <br />
+      <p>Mais au fur et à mesure, nous avons commencé à nous ouvrir un peu plus. Les discussions abordaient des sujets du quotidien. On parlait de ce qu'on avait mangé, de ce qu'on allait faire les jours à venir. Avec le temps, notre amitié a lentement évolué. Petit à petit, la relation est devenue plus intéressante.</p>
+      <br />
+      <p>Enola a commencé à devenir une personne importante dans ma vie, et je commençais à m'ouvrir davantage à elle. C'était avec elle uniquement que je pouvais laisser tomber ma timidité et être moi-même. Je lui ai donné une chance, parce que je sentais qu'elle était spéciale. On a commencé à partager nos faiblesses, nos forces, et tout ce qui faisait de nous ce que nous sommes.</p>
+      <br />
+      <p>J'ai appris à comprendre la timidité d'Enola, à voir ce qui la rendait si réservée. En retour, je lui ai montré une version plus extravertie de moi-même, pour lui prouver qu'elle pouvait être en confiance avec moi. Je ne la jugeais pas et j'avais envie qu'elle se sente à l'aise en partageant ce qu'elle ressentait.</p>
+      <br />
+      <p>Je me suis aussi ouvert à elle, car j'avais besoin de me confier à quelqu'un. Je me sentais seul, et Enola était là pour moi. Elle est devenue quelqu'un sur qui je pouvais compter. Nous avons partagé des moments très drôles, des blagues personnelles qui resteront gravées dans ma mémoire, comme l'histoire des bâtons de ski ou l'histoire de Pô le chien.</p>
+    </div>
+    <div class="numero-page" style="position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%);">Page 7</div>
+    <a href="page06.html" class="fleche-gauche">←</a>
+    <a href="page08.html" class="fleche-droite">→</a>
+  </div>
+  <script>
+    const btn = document.getElementById('toggle-dark');
+    const dark = localStorage.getItem('dark') === 'true';
+    if (dark) { document.body.classList.add('dark-mode'); btn.textContent = '🌙'; }
+    btn.addEventListener('click', () => {
+      document.body.classList.toggle('dark-mode');
+      const isDark = document.body.classList.contains('dark-mode');
+      btn.textContent = isDark ? '🌙' : '☀️';
+      localStorage.setItem('dark', isDark);
+    });
+    document.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', function (e) {
+        const href = this.getAttribute('href');
+        if (href && !href.startsWith('#') && !href.startsWith('javascript')) {
+          e.preventDefault();
+          document.body.classList.add('fade-out');
+          setTimeout(() => { window.location.href = href; }, 600);
+        }
+      });
+    });
+  </script>
+</body>
+</html>

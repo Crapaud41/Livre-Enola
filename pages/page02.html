@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sommaire</title>
+  <link rel="stylesheet" href="../style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet" />
+  <style>
+    .sommaire {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      max-width: 650px;
+      width: 100%;
+      margin-top: 10px;
+      overflow-y: auto;
+    }
+    .sommaire a {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 8px 16px;
+      border-radius: 8px;
+      background: rgba(31, 117, 254, 0.08);
+      color: #1F75FE;
+      text-decoration: none;
+      font-size: 16px;
+      font-weight: bold;
+      transition: background 0.2s;
+    }
+    .sommaire a:hover {
+      background: rgba(31, 117, 254, 0.2);
+    }
+    .sommaire a span {
+      color: #aaa;
+      font-size: 14px;
+      font-weight: normal;
+    }
+    body.dark-mode .sommaire a {
+      background: rgba(255,255,255,0.07);
+      color: #6CA6CD;
+    }
+    body.dark-mode .sommaire a:hover {
+      background: rgba(255,255,255,0.15);
+    }
+  </style>
+</head>
+<body>
+  <button id="toggle-dark" title="Changer le thème">☀️</button>
+  <div class="page-blanche" style="position: relative; justify-content: flex-start; padding-top: 20px;">
+    <h1 class="titre-classique">Sommaire 💙</h1>
+    <div class="sommaire">
+      <a href="page01.html">Présentation <span>Page 1</span></a>
+      <a href="page03.html">Portrait d'Enola <span>Page 3</span></a>
+      <a href="page04.html">Lettre à Enola <span>Page 4</span></a>
+      <a href="page05.html">Un Lien Indestructible <span>Page 5</span></a>
+      <a href="page07.html">Une Rencontre Inattendue <span>Page 7</span></a>
+      <a href="page08.html">Mille Surnoms, mais un seul Cœur <span>Page 8</span></a>
+      <a href="page09.html">17 Raisons de pourquoi je l'aime <span>Page 9</span></a>
+      <a href="page10.html">17 Raisons de mon admiration <span>Page 10</span></a>
+      <a href="page11.html">Acrostiche d'Enola <span>Page 11</span></a>
+      <a href="page12.html">Si Enola était… <span>Page 12</span></a>
+      <a href="page13.html">Ce que je suis devenu grâce à toi <span>Page 13</span></a>
+      <a href="page14.html">Ce que j'aime chez Enola <span>Page 14</span></a>
+      <a href="page15.html">Les choses qui me font penser à Enola <span>Page 15</span></a>
+      <a href="page16.html">Poésie pour Enola <span>Page 16</span></a>
+      <a href="page17.html">L'effet Enola <span>Page 17</span></a>
+      <a href="page18.html">Notre Rencontre <span>Page 18</span></a>
+      <a href="page19.html">Mes Promesses <span>Page 19</span></a>
+    </div>
+    <div class="numero-page" style="position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%);">Page 2</div>
+    <a href="page01.html" class="fleche-gauche">←</a>
+    <a href="page03.html" class="fleche-droite">→</a>
+  </div>
+  <script>
+    const btn = document.getElementById('toggle-dark');
+    const dark = localStorage.getItem('dark') === 'true';
+    if (dark) { document.body.classList.add('dark-mode'); btn.textContent = '🌙'; }
+    btn.addEventListener('click', () => {
+      document.body.classList.toggle('dark-mode');
+      const isDark = document.body.classList.contains('dark-mode');
+      btn.textContent = isDark ? '🌙' : '☀️';
+      localStorage.setItem('dark', isDark);
+    });
+    document.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', function (e) {
+        const href = this.getAttribute('href');
+        if (href && !href.startsWith('#') && !href.startsWith('javascript')) {
+          e.preventDefault();
+          document.body.classList.add('fade-out');
+          setTimeout(() => { window.location.href = href; }, 600);
+        }
+      });
+    });
+  </script>
+</body>
+</html>

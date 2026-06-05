@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Si Enola était...</title>
+  <link rel="stylesheet" href="../style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet" />
+  <style>
+    .liste-raisons {
+      max-width: 700px;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      overflow-y: auto;
+      padding: 0 10px;
+    }
+    .raison-item {
+      background: rgba(31, 117, 254, 0.07);
+      border-radius: 8px;
+      padding: 8px 14px;
+      text-align: left;
+      font-size: 15px;
+      opacity: 0;
+      transform: translateY(10px);
+      animation: fadeInItem 0.4s forwards;
+    }
+    .raison-item:nth-child(1)  { animation-delay: 0.05s; }
+    .raison-item:nth-child(2)  { animation-delay: 0.1s; }
+    .raison-item:nth-child(3)  { animation-delay: 0.15s; }
+    .raison-item:nth-child(4)  { animation-delay: 0.2s; }
+    .raison-item:nth-child(5)  { animation-delay: 0.25s; }
+    .raison-item:nth-child(6)  { animation-delay: 0.3s; }
+    .raison-item:nth-child(7)  { animation-delay: 0.35s; }
+    .raison-item:nth-child(8)  { animation-delay: 0.4s; }
+    .raison-item:nth-child(9)  { animation-delay: 0.45s; }
+    .raison-item:nth-child(10) { animation-delay: 0.5s; }
+    .raison-item:nth-child(11) { animation-delay: 0.55s; }
+    .raison-item:nth-child(12) { animation-delay: 0.6s; }
+    .raison-item:nth-child(13) { animation-delay: 0.65s; }
+    .raison-item:nth-child(14) { animation-delay: 0.7s; }
+    .raison-item:nth-child(15) { animation-delay: 0.75s; }
+    .raison-item:nth-child(16) { animation-delay: 0.8s; }
+    .raison-item:nth-child(17) { animation-delay: 0.85s; }
+    @keyframes fadeInItem {
+      to { opacity: 1; transform: translateY(0); }
+    }
+    body.dark-mode .raison-item {
+      background: rgba(255, 255, 255, 0.05);
+    }
+  </style>
+</head>
+<body>
+  <button id="toggle-dark" title="Changer le thème">☀️</button>
+  <div class="page-blanche" style="position: relative; justify-content: flex-start; padding-top: 20px;">
+    <h1 class="titre-classique">Si Enola était… 💙</h1>
+    <div class="liste-raisons">
+      <div class="raison-item">• Si Enola était un fruit, elle serait : une Myrtille.</div>
+      <div class="raison-item">• Si Enola était une saison, elle serait : le Printemps.</div>
+      <div class="raison-item">• Si Enola était une étoile, elle serait : Sirius.</div>
+      <div class="raison-item">• Si Enola était un parfum, elle serait : la Vanille.</div>
+      <div class="raison-item">• Si Enola était une planète, elle serait : Neptune.</div>
+      <div class="raison-item">• Si Enola était une couleur, elle serait : le Bleu.</div>
+      <div class="raison-item">• Si Enola était une émotion, elle serait : la Joie.</div>
+      <div class="raison-item">• Si Enola était un livre, elle serait : une Poésie.</div>
+      <div class="raison-item">• Si Enola était une fleur, elle serait : une Rose.</div>
+      <div class="raison-item">• Si Enola était un animal, elle serait : un Chat.</div>
+      <div class="raison-item">• Si Enola était une lumière, elle serait : la lumière de la Pleine Lune.</div>
+      <div class="raison-item">• Si Enola était un paysage, elle serait : un Coucher de Soleil.</div>
+      <div class="raison-item">• Si Enola était un rêve, elle serait : celui qu'on ne veut jamais quitter.</div>
+      <div class="raison-item">• Si Enola était une musique, elle serait : une musique classique.</div>
+      <div class="raison-item">• Si Enola était un mot, elle serait : le mot Ange.</div>
+      <div class="raison-item">• Si Enola était un miracle, elle serait : celui qui m'a sauvé la vie.</div>
+      <div class="raison-item">• Si Enola était un souvenir, elle serait : Inoubliable.</div>
+    </div>
+    <div class="numero-page" style="position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%);">Page 13</div>
+    <a href="page12.html" class="fleche-gauche">←</a>
+    <a href="page14.html" class="fleche-droite">→</a>
+  </div>
+  <script>
+    const btn = document.getElementById('toggle-dark');
+    const dark = localStorage.getItem('dark') === 'true';
+    if (dark) { document.body.classList.add('dark-mode'); btn.textContent = '🌙'; }
+    btn.addEventListener('click', () => {
+      document.body.classList.toggle('dark-mode');
+      const isDark = document.body.classList.contains('dark-mode');
+      btn.textContent = isDark ? '🌙' : '☀️';
+      localStorage.setItem('dark', isDark);
+    });
+    document.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', function (e) {
+        const href = this.getAttribute('href');
+        if (href && !href.startsWith('#') && !href.startsWith('javascript')) {
+          e.preventDefault();
+          document.body.classList.add('fade-out');
+          setTimeout(() => { window.location.href = href; }, 600);
+        }
+      });
+    });
+  </script>
+</body>
+</html>

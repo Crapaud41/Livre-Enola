@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lettre à Enola</title>
+  <link rel="stylesheet" href="../style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <button id="toggle-dark" title="Changer le thème">☀️</button>
+  <div class="page-blanche" style="position: relative; justify-content: flex-start; padding-top: 20px;">
+    <h1 class="titre-classique">Pour ma petite Enola 💙</h1>
+    <div class="texte-lettre">
+      <p>Bonjour mon petit chamallows, j'espère que tu vas bien et que tout va bien autour de toi.</p>
+      <p>Comme tu le sais depuis plusieurs années, on se parle régulièrement et on a souvent geeké ensemble,</p>
+      <p>même si depuis un certain temps je préfère qu'on discute de tout et de rien,</p>
+      <p>ça me permet de souffler un peu et de passer du temps en ta compagnie</p>
+      <p>et ça c'est un luxe que peu de gens ont la chance d'avoir.</p>
+      <p>Je te considère comme une amie importante dans ma vie,</p>
+      <p>tu as donné beaucoup pour moi et jamais je ne pourrais te remercier assez.</p>
+      <p>T'es la seule personne qui connaît presque tout sur moi,</p>
+      <p>alors oui certes on se connaît virtuellement mais sache que tu as une grande et importante place</p>
+      <p>dans mon cœur et que quoi qu'il puisse arriver ça ne changera absolument jamais,</p>
+      <p>comme tu le sais déjà je vais être encore longtemps dans ta vie.</p>
+      <p>Si tu devais retenir une seule chose de tout ce temps qu'on a passé ensemble,</p>
+      <p>c'est que tu es une amie exceptionnelle et que jamais je ne pourrais trouver une deuxième amie comme toi</p>
+      <p>car tu es unique. Jamais je ne t'oublierai.</p>
+      <br />
+      <p>Je t'aime ma petite Enola (je suis pas PD t'es fou toi),</p>
+      <p>pleins de bisous et surtout ne change rien, t'es la meilleure.</p>
+      <br />
+      <p>Ton petit crapaud 🐸</p>
+      <img src="../happymeal.jpg" alt="Happy Meal" style="max-width: 130px; margin-top: 15px;" />
+    </div>
+    <div class="numero-page" style="position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%);">Page 4</div>
+    <a href="page03.html" class="fleche-gauche">←</a>
+    <a href="page05.html" class="fleche-droite">→</a>
+  </div>
+  <script>
+    const btn = document.getElementById('toggle-dark');
+    const dark = localStorage.getItem('dark') === 'true';
+    if (dark) { document.body.classList.add('dark-mode'); btn.textContent = '🌙'; }
+    btn.addEventListener('click', () => {
+      document.body.classList.toggle('dark-mode');
+      const isDark = document.body.classList.contains('dark-mode');
+      btn.textContent = isDark ? '🌙' : '☀️';
+      localStorage.setItem('dark', isDark);
+    });
+    document.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', function (e) {
+        const href = this.getAttribute('href');
+        if (href && !href.startsWith('#') && !href.startsWith('javascript')) {
+          e.preventDefault();
+          document.body.classList.add('fade-out');
+          setTimeout(() => { window.location.href = href; }, 600);
+        }
+      });
+    });
+  </script>
+</body>
+</html>

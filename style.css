@@ -33,15 +33,15 @@ body.fade-out {
 
 /* Mode nuit */
 body.dark-mode {
-  background: #121212;
+  background: #00072D;
   animation: none;
   color: white;
 }
 
 body.dark-mode .page-blanche {
-  background-color: #1e1e1e;
+  background-color: #2B2D31;
   color: #eee;
-  border-color: rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.1);
 }
 
 body.dark-mode .numero-page {
@@ -50,12 +50,12 @@ body.dark-mode .numero-page {
 
 body.dark-mode .fleche-gauche,
 body.dark-mode .fleche-droite {
-  background: rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.1);
   color: #eee;
 }
 
 body.dark-mode #toggle-dark {
-  background: #333;
+  background: #1a1f3a;
   color: white;
 }
 

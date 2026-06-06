@@ -70,4 +70,38 @@
         <p class="surnom-texte">Ce surnom montre à quel point elle compte pour moi. Ce "petite" n'est pas pour sa petite taille, il exprime toute la douceur et l'affection que je ressens pour elle. Quand je l'appelle ainsi, c'est comme si je lui disais : tu es unique, tu es importante.</p>
       </div>
       <div class="surnom-item">
-        <div class="surnom-titre">Mon p
+        <div class="surnom-titre">Mon petit rayon de lune</div>
+        <p class="surnom-texte">À mes yeux elle est comme la lune, douce et brillante. Je pourrais la regarder pendant des heures, discrète mais toujours présente. Elle illumine mes moments difficiles, juste par sa présence. Elle ne brille peut-être pas comme le soleil aux yeux de tous, mais pour moi, elle illumine ma vie. C'est mon petit rayon de lune, celui qui me calme, m'apaise, et me guide sans jamais m'éblouir.</p>
+      </div>
+      <div class="surnom-item">
+        <div class="surnom-titre">Ma vie</div>
+        <p class="surnom-texte">Ce surnom peut paraître simple, mais pour moi il veut dire énormément. Quand je l'appelle "ma vie", c'est parce qu'elle représente tout pour moi. Elle est cette personne sans qui rien n'aurait le même sens, celle qui donne une vraie valeur à mes journées. L'appeler ainsi, c'est lui dire qu'elle est au centre de mon monde, qu'elle est essentielle à mon bonheur. Enola, c'est celle qui m'a aidé à continuer de vivre.</p>
+      </div>
+    </div>
+    <div class="numero-page" style="position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%);">Page 9</div>
+    <a href="page08.html" class="fleche-gauche">←</a>
+    <a href="page10.html" class="fleche-droite">→</a>
+  </div>
+  <script>
+    const btn = document.getElementById('toggle-dark');
+    const dark = localStorage.getItem('dark') === 'true';
+    if (dark) { document.body.classList.add('dark-mode'); btn.textContent = '🌙'; }
+    btn.addEventListener('click', () => {
+      document.body.classList.toggle('dark-mode');
+      const isDark = document.body.classList.contains('dark-mode');
+      btn.textContent = isDark ? '🌙' : '☀️';
+      localStorage.setItem('dark', isDark);
+    });
+    document.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', function (e) {
+        const href = this.getAttribute('href');
+        if (href && !href.startsWith('#') && !href.startsWith('javascript')) {
+          e.preventDefault();
+          document.body.classList.add('fade-out');
+          setTimeout(() => { window.location.href = href; }, 600);
+        }
+      });
+    });
+  </script>
+</body>
+</html>

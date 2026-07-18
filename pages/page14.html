@@ -13,7 +13,7 @@
       display: flex;
       flex-direction: column;
       gap: 8px;
-      overflow-y: auto;
+      overflow-y: hidden;
       padding: 0 10px;
     }
     .raison-item {
@@ -53,6 +53,7 @@
 </head>
 <body>
   <button id="toggle-dark" title="Changer le thème">☀️</button>
+  <a href="page02.html" id="home-btn" title="Sommaire">🏠</a>
   <div class="page-blanche" style="position: relative; justify-content: flex-start; padding-top: 20px;">
     <h1 class="titre-classique">Ce que je suis devenu grâce à toi 💙</h1>
     <div class="liste-raisons">
@@ -75,6 +76,9 @@
       <div class="raison-item">• Tu as su me tendre la main comme personne ne l'avait fait auparavant.</div>
     </div>
     <div class="numero-page" style="position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%);">Page 14</div>
+    <div class="progress-bar-container">
+      <div class="progress-bar-fill" style="width: calc(14 / 19 * 100%)"></div>
+    </div>
     <a href="page13.html" class="fleche-gauche">←</a>
     <a href="page15.html" class="fleche-droite">→</a>
   </div>
